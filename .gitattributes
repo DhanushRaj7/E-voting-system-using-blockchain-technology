@@ -1,0 +1,8 @@
+# Normalize line endings across platforms
+* text=auto
+
+# Generated / compiled output — keep out of GitHub language stats and
+# collapse in diffs (these are build artifacts, not source)
+artifacts/** linguist-generated=true
+cache/** linguist-generated=true
+yarn.lock linguist-generated=true

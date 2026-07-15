@@ -1,0 +1,38 @@
+name: Bug report
+description: Report something broken in the app or contracts
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What went wrong and what you expected instead.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where?
+      options:
+        - Smart contract
+        - Frontend (Next.js)
+        - Wallet / web3 connection
+        - OTP / authentication
+        - Deployment / Hardhat
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Network (localhost/Sepolia), wallet, browser, Node version"
+    validations:
+      required: true

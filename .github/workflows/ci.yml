@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  contracts:
+    name: Compile & Test Contracts
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: 0            # skip husky git hooks in CI
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Compile smart contract
+        run: npx hardhat compile
+
+      - name: Run contract tests
+        run: npx hardhat test
